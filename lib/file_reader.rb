@@ -6,9 +6,9 @@ class ReadFile
     begin
       @file_lines = File.readlines(@filepath)
       @file_size = @file_lines.size
-    rescue StandardError => exception
+    rescue StandardError => e
       @file_lines = []
-      @err_msg = "The given file path has  an error #{exeption.to_s} "
+      @err_msg = "The given file path has  an error #{e} "
     end
   end
 end
