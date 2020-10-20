@@ -8,7 +8,7 @@ else
   lint_check.check_trailing_space
   lint_check.check_tags
   lint_check.check_empty_line
-  lint_check.check_opening_braces
+  lint_check.check_semicolon
   if lint_check.err.empty?
     puts 'No error found'
   else

@@ -8,12 +8,12 @@ class LinterCheck
     @keywords = ['if', 'else', 'for', 'while', 'try', 'catch', '{', '}']
   end
 
-  def check_opening_braces
+  def check_semicolon
     @file_check.file_lines.each_with_index do |string, index|
-      next unless @keywords.include?(string.split(' ').first)
+      next if @keywords.include?(string.split(' ').first) || string.strip.empty? || string.include?('class')
 
-      string.split(' ').first
-      @err << "#{@file_check.filepath} :#{index + 1} :Add semicolon " unless string.split(' ').last.eql?(';')
+     string.strip!
+      @err << "#{@file_check.filepath} :#{index + 1} :Add semicolon " if string[-1 ,1] != ';'
     end
   end
   
@@ -37,7 +37,7 @@ class LinterCheck
 
   def check_empty_line
     @file_check.file_lines.each_with_index do |string, index|
-      if string.strip.split(' ').first.eql?('class')
+      if string.strip.split(' ').include?('class')
         check_class_empty_line(string, index)
       elsif string.strip.split(' ').first.eql?('def')
         check_method_empty_line(string, index)
