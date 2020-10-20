@@ -36,14 +36,14 @@ class LinterCheck
       end
     end
   end
-  tags_error(/\(/, /\)/, '(', ')' ,'parenthesis')
+  
   def tags_error(*param)
     opening_tag = []
     closing_tag = []
     @file_check.file_line.each_with_index do |string, index|
       opening_tag << string.scan(param[0])
       closing_tag << string.scan(param[1])
-      check = opening_tag.flatten.size <=> closing_tag.flatten.size
+      check = opening_tag.size <=> closing_tag.size
       if check != 0
         error = "#{@file_check.file_path} :line #{index + 1} :Lint/Syntax: Missing or unexpected token #{param[4]}"
         @err << error
