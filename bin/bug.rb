@@ -1,8 +1,7 @@
 class Bug
-
-    def initialize  (a)
     
-        @a= a
-     
-    end
+  def initialize (abc
+
+    @a = 'abc '
+  end
 end

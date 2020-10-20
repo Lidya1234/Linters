@@ -8,9 +8,10 @@ else
   lint_check.check_trailing_space
   lint_check.check_tags
   lint_check.check_empty_line
+  lint_check.check_opening_braces
   if lint_check.err.empty?
     puts 'No error found'
   else
-    lint_check.err.each { |err| puts err }
+    lint_check.err.uniq.each { |err| puts err }
   end
 end

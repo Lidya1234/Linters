@@ -5,15 +5,27 @@ class LinterCheck
   def initialize(file_path)
     @file_check = ReadFile.new(file_path)
     @err = []
+    @keywords = ['if', 'else', 'for', 'while', 'try', 'catch', '{', '}']
   end
 
-  def check_indentation; end
+  def check_opening_braces
+    @file_check.file_lines.each_with_index do |string, index|
+      next unless @keywords.include?(string.split(' ').first)
+
+      string.split(' ').first
+      @err << "#{@file_check.filepath} :#{index + 1} :Add semicolon " unless string.split(' ').last.eql?(';')
+    end
+  end
+  
+  def check_opening_tag(_string, index)
+    puts @file_check.file_lines[index + 1].strip.first.eql?('{')
+
+    @err << "#{@file_check.filepath} :#{index + 1} :Enclose with { } "
+  end
 
   def check_trailing_space
-    @file_check.file_lines.each_with_index do |string, index|
-      if string.match(/\s*$/) && !string.strip.empty?
-        @err << "#{@file_check.filepath} :#{index + 1} :#{string.size - 1}: Trailing whitespace detected"
-      end
+    @file_check.file_lines.each_with_index do |string, _index|
+      @err << "#{@file_check.filepath} : Trailing whitespace detected" if string.match(/\s*$/) && !string.strip.empty?
     end
   end
 
@@ -22,8 +34,6 @@ class LinterCheck
     tags_error(/\{/, /\}/, '{', '}', 'Braces')
     tags_error(/\[/, /\]/, '[', ']', 'square_brackets')
   end
-
-  def check_end; end
 
   def check_empty_line
     @file_check.file_lines.each_with_index do |string, index|
@@ -40,12 +50,14 @@ class LinterCheck
   def tags_error(*param)
     opening_tag = []
     closing_tag = []
-    @file_check.file_lines.each_with_index do |string, index|
+    @file_check.file_lines.each_with_index do |string, _index|
       opening_tag << string.scan(param[0])
+
       closing_tag << string.scan(param[1])
-      check = opening_tag.size <=> closing_tag.size
+
+      check = opening_tag.flatten.length <=> closing_tag.flatten.length
       if check != 0
-        error = "#{@file_check.file_path} :line #{index + 1} :Lint/Syntax: Missing or unexpected token #{param[4]}"
+        error = "#{@file_check.filepath} : :Lint/Syntax: Missing or unexpected token #{param[4]}"
         @err << error
       end
     end
