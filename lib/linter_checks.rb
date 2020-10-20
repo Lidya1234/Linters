@@ -12,15 +12,9 @@ class LinterCheck
     @file_check.file_lines.each_with_index do |string, index|
       next if @keywords.include?(string.split(' ').first) || string.strip.empty? || string.include?('class')
 
-     string.strip!
-      @err << "#{@file_check.filepath} :#{index + 1} :Add semicolon " if string[-1 ,1] != ';'
+      string.strip!
+      @err << "#{@file_check.filepath} :#{index + 1} :Add semicolon " if string[-1, 1] != ';'
     end
-  end
-  
-  def check_opening_tag(_string, index)
-    puts @file_check.file_lines[index + 1].strip.first.eql?('{')
-
-    @err << "#{@file_check.filepath} :#{index + 1} :Enclose with { } "
   end
 
   def check_trailing_space
