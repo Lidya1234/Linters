@@ -1,8 +1,0 @@
-class Bug
-{
-    public function bug()
-    {
-        int a=0;
-        int b=1 ;
-    }
-}

@@ -1,5 +1,5 @@
 class ReadFile
-  attr_reader :file_lines, :file_size, :err_msg
+  attr_reader :file_lines, :file_size, :err_msg ,:filepath
   def initialize(filepath)
     @err_msg = ''
     @filepath = filepath
