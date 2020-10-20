@@ -1,13 +1,13 @@
 require_relative 'file_reader.rb'
 
 class LinterCheck
-    attr_reader :file_check, :err
+  attr_reader :file_check, :err
   def initialize(file_path)
     @file_check = ReadFile.new(file_path)
     @err = []
   end
 
-  def check_indentation; end 
+  def check_indentation; end
 
   def check_trailing_space
     @file_check.file_line.each_with_index do |string, index|
@@ -18,9 +18,9 @@ class LinterCheck
   end
 
   def check_tags
-    tags_error(/\(/, /\)/, '(', ')' ,'parenthesis')
-    tags_error(/\{/, /\}/, '{', '}' ,'Braces')
-    tags_error(/\[/, /\]/, '[', ']' ,'square_brackets')
+    tags_error(/\(/, /\)/, '(', ')', 'parenthesis')
+    tags_error(/\{/, /\}/, '{', '}', 'Braces')
+    tags_error(/\[/, /\]/, '[', ']', 'square_brackets')
   end
 
   def check_end; end
@@ -36,7 +36,7 @@ class LinterCheck
       end
     end
   end
-  
+
   def tags_error(*param)
     opening_tag = []
     closing_tag = []
@@ -51,13 +51,15 @@ class LinterCheck
     end
   end
   check_class_empty_line(string, index)
-  def check_class_empty_line(string ,index)
+  def check_class_empty_line(_string, index)
     @err << "Empty line at the begning of a class: #{index + 2}" if @file_check.file_line[index + 1].strip.empty?
   end
-  def check_method_empty_line(string ,index)
+
+  def check_method_empty_line(_string, index)
     @err << "Empty line at the begning of a method: #{index + 2}" if @file_check.file_line[index + 1].strip.empty?
   end
-  def check_do_empty_line(string ,index)
+
+  def check_do_empty_line(_string, index)
     @err << "Empty line at the begning of a do block: #{index + 2}" if @file_check.file_line[index + 1].strip.empty?
   end
 end
