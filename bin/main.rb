@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby
+
 require_relative '../lib/linter_checks.rb'
 
 lint_check = LinterCheck.new(ARGV.first)
