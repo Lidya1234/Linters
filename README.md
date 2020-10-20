@@ -32,7 +32,7 @@ git clone  https://github.com/Lidya1234/Linters
 - check_empty_lines in methods and classes
 
 ## TESTING EXAMPLE
-<img src='javalint.png' alt ='file_tested'>
+<img src="javalint.png"  alt ="file_tested">
 
 
 ## How to run tests
