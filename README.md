@@ -17,8 +17,8 @@ To run the project in your local machine you need the following specifications
 - VSCODE
 - Github profile
 - Git and Ruby
-- Rspec.
-- Ruboco
+- Rspec
+- Rubocop
 - Visual studio code ruby exentions
 - visual studio code java extentions
 
