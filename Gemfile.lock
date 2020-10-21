@@ -21,7 +21,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  
+  colorize
   rspec
 
 BUNDLED WITH
