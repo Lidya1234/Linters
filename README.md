@@ -13,22 +13,38 @@
 
 
 ## Prerequisites
-- Text editor
+- VSCODE
 - Github profile
 - Git and Ruby
 - Rspec.
-- Rubocop
+- Ruboco
+- Visual studio code ruby exentions
+- visyual studio code java extentions
+<h1>How to install ruby </h1>
+- Type www.rubyinstaller.org in your browser
+
+- Download Ruby 2.6.6 version
+
+- Install it following the instructions 
+<h6>Operating system Used</h6>
+- Windows 10 pro operating system 
+- But it can also run Linux operating sysytems
+<h6>System specifications </h6>
+- 8 GB RAM
+- Hardisk 1TB
+- 64 bit operating system
 
 
 <h1>Getting Started</h1>
 
 #To get a local copy up and running follow these simple example steps.
-In command line editor
+```In command line editor
 cd <folder>
 
 git clone  https://github.com/Lidya1234/Linters
 cd Linters 
 cd bin
+```
 ## How to run
 ruby main.rb 
 Then it will test the file for linter errors
