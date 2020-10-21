@@ -13,13 +13,13 @@ class LinterCheck
       next if @keywords.include?(string.split(' ').first) || string.strip.empty? || string.include?('class')
 
       string.strip!
-      @err << "#{@file_check.filepath} :#{index + 1} :Add semicolon " if string[-1, 1] != ';'
+      @err << "#{@file_check.filepath} :Lint/Syntax: Missing semicolon " if string[-1, 1] != ';'
     end
   end
 
   def check_trailing_space
     @file_check.file_lines.each_with_index do |string, _index|
-      @err << "#{@file_check.filepath} : Trailing whitespace detected" if string.match(/\s*$/) && !string.strip.empty?
+      @err << "#{@file_check.filepath} :Lint/Syntax: Trailing whitespace detected" if string.match(/\s*$/) && !string.strip.empty?
     end
   end
 
@@ -33,8 +33,6 @@ class LinterCheck
     @file_check.file_lines.each_with_index do |string, index|
       if string.strip.split(' ').include?('class')
         check_class_empty_line(string, index)
-      elsif string.strip.split(' ').first.eql?('def')
-        check_method_empty_line(string, index)
       elsif string.strip.split(' ').include?('do')
         check_do_empty_line(string, index)
       end
@@ -51,21 +49,21 @@ class LinterCheck
 
       check = opening_tag.flatten.length <=> closing_tag.flatten.length
       if check != 0
-        error = "#{@file_check.filepath} : :Lint/Syntax: Missing or unexpected token #{param[4]}"
+        error = "#{@file_check.filepath} :Lint/Syntax: Missing or unexpected token #{param[4]}"
         @err << error
       end
     end
   end
 
   def check_class_empty_line(_string, index)
-    @err << "Empty line at the begning of a class: #{index + 2}" if @file_check.file_lines[index + 1].strip.empty?
+    @err << "#{@file_check.filepath} :Lint/Syntax: Empty line at the begning of a class" if @file_check.file_lines[index + 1].strip.empty?
   end
 
   def check_method_empty_line(_string, index)
-    @err << "Empty line at the begning of a method: #{index + 2}" if @file_check.file_lines[index + 1].strip.empty?
+    @err << "#{@file_check.filepath} :Lint/Syntax: Empty line at the begning of a method" if @file_check.file_lines[index + 1].strip.empty?
   end
 
   def check_do_empty_line(_string, index)
-    @err << "Empty line at the begning of a do block: #{index + 2}" if @file_check.file_lines[index + 1].strip.empty?
+    @err << "#{@file_check.filepath} :Empty line at the begning of a do block" if @file_check.file_lines[index + 1].strip.empty?
   end
 end

@@ -1,6 +1,8 @@
 # Linters for java microverse capstone project
-This a project to build your own linters.It is created using ruby to check java linter errors
-
+-Created a linter check project for java programming language (Java is a powerful general-purpose programming language. It is used to develop desktop and mobile applications, big data processing, embedded systems, and so on.
+-There should be a semicolon after every expression.
+- code inside a class or method should be enclosed in braces.
+)using ruby programming language
 
 ## Built With
 
@@ -79,7 +81,7 @@ Feel free to check the issues page.
 Show your support Give a ⭐️ if you like this project!
 
 ## Acknowledgments
-Inspired by Microverse
+Inspired by Microverse.
 
 ## 📝 License 
 This project does not have a license
