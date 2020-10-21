@@ -1,6 +1,8 @@
 require_relative '../lib/linter_checks.rb'
 
-lint_check = LinterCheck.new('../Lint_bugs/bugs.java')
+puts 'Enter the java file that you want to test'
+file = gets.chomp
+lint_check = LinterCheck.new(file)
 if !lint_check.file_check.err_msg.empty?
   puts lint_check.file_check.err_msg
 else

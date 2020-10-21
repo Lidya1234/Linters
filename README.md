@@ -42,7 +42,7 @@ To run the project in your local machine you need the following specifications
 #To get a local copy up and running follow these simple example steps.
 
 In command line editor
-```ruby
+```bash
 cd <folder>
 
 git clone  https://github.com/Lidya1234/Linters
@@ -50,8 +50,11 @@ cd Linters
 cd bin
 ```
 ## How to run
-ruby main.rb /Add the file that you want to check for linter error/ 
-Then it will test the file for linter errors
+ruby main.rb 
+Then it will ask- Enter the  path of the file you want to test(for example in my case ../Lint_bugs/bugs.java)
+Then it will check the file for any linter errors
+
+
 
 
 ## JAVA LINTER
