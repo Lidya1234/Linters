@@ -9,7 +9,7 @@ class LinterCheck
   end
 
   def check_semicolon
-    @file_check.file_lines.each_with_index do |string, index|
+    @file_check.file_lines.each_with_index do |string, _index|
       next if @keywords.include?(string.split(' ').first) || string.strip.empty? || string.include?('class')
 
       string.strip!
@@ -19,7 +19,9 @@ class LinterCheck
 
   def check_trailing_space
     @file_check.file_lines.each_with_index do |string, _index|
-      @err << "#{@file_check.filepath} :Lint/Syntax: Trailing whitespace detected" if string.match(/\s*$/) && !string.strip.empty?
+      if string.match(/\s*$/) && !string.strip.empty?
+        @err << "#{@file_check.filepath} :Lint/Syntax: Trailing whitespace detected"
+      end
     end
   end
 
@@ -56,14 +58,20 @@ class LinterCheck
   end
 
   def check_class_empty_line(_string, index)
-    @err << "#{@file_check.filepath} :Lint/Syntax: Empty line at the begning of a class" if @file_check.file_lines[index + 1].strip.empty?
+    return unless @file_check.file_lines[index + 1].strip.empty?
+
+    @err << "#{@file_check.filepath} :Lint/Syntax: Empty line at the begning of a class"
   end
 
   def check_method_empty_line(_string, index)
-    @err << "#{@file_check.filepath} :Lint/Syntax: Empty line at the begning of a method" if @file_check.file_lines[index + 1].strip.empty?
+    return unless @file_check.file_lines[index + 1].strip.empty?
+
+    @err << "#{@file_check.filepath} :Lint/Syntax: Empty line at the begning of a method"
   end
 
   def check_do_empty_line(_string, index)
-    @err << "#{@file_check.filepath} :Empty line at the begning of a do block" if @file_check.file_lines[index + 1].strip.empty?
+    return unless @file_check.file_lines[index + 1].strip.empty?
+
+    @err << "#{@file_check.filepath} :Empty line at the begning of a do block"
   end
 end
