@@ -1,6 +1,6 @@
 require_relative '../lib/linter_checks.rb'
 
-lint_check = LinterCheck.new(ARGV.first)
+lint_check = LinterCheck.new('../Lint_bugs/bugs.java')
 if !lint_check.file_check.err_msg.empty?
   puts lint_check.file_check.err_msg
 else

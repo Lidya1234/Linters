@@ -21,9 +21,16 @@ This a project to build your own linters.It is created using ruby to check java 
 <h1>Getting Started</h1>
 
 #To get a local copy up and running follow these simple example steps.
-cd 
+In command line editor
+cd <folder>
 
 git clone  https://github.com/Lidya1234/Linters
+cd Linters 
+cd bin
+## How to run
+ruby main.rb 
+Then it will test the file for linter errors
+<img src="" alt="">
 
 ## JAVA LINTER
 - Check_trailing_spaces
@@ -32,7 +39,15 @@ git clone  https://github.com/Lidya1234/Linters
 - check_empty_lines in methods and classes
 
 ## TESTING EXAMPLE
+- Bad code
+
 <img src="javalint.PNG"  alt ="file_tested">
+
+- Good code
+
+<img src="Good_code.PNG" alt ="Good code">
+
+
 
 
 ## How to run tests
@@ -66,6 +81,6 @@ Show your support Give a ⭐️ if you like this project!
 ## Acknowledgments
 Inspired by Microverse
 
-📝 License 
+## 📝 License 
 This project does not have a license
 
