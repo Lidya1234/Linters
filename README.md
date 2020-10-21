@@ -19,7 +19,7 @@
 - Rspec.
 - Ruboco
 - Visual studio code ruby exentions
-- visyual studio code java extentions
+- visual studio code java extentions
 <h1>How to install ruby </h1>
 - Type www.rubyinstaller.org in your browser
 
@@ -38,7 +38,9 @@
 <h1>Getting Started</h1>
 
 #To get a local copy up and running follow these simple example steps.
-```In command line editor
+
+In command line editor
+```ruby
 cd <folder>
 
 git clone  https://github.com/Lidya1234/Linters
