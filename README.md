@@ -13,6 +13,7 @@
 
 
 ## Prerequisites
+To run the project in your local machine you need the following specifications
 - VSCODE
 - Github profile
 - Git and Ruby
@@ -20,6 +21,7 @@
 - Ruboco
 - Visual studio code ruby exentions
 - visual studio code java extentions
+
 <h1>How to install ruby </h1>
 - Type www.rubyinstaller.org in your browser
 
