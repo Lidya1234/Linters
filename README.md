@@ -48,9 +48,9 @@ cd Linters
 cd bin
 ```
 ## How to run
-ruby main.rb 
+ruby main.rb /Add the file that you want to check for linter error/ 
 Then it will test the file for linter errors
-<img src="" alt="">
+
 
 ## JAVA LINTER
 - Check_trailing_spaces
@@ -73,7 +73,7 @@ Then it will test the file for linter errors
 ## How to run tests
 - cd 
 - In command line editor write gem install rspec .
-- You will find the enumerables_spec.rb in Linters/spec folder .
+- You will find the linter_spec.rb in Linters/spec folder .
 - To run it  in command line editor write  rspec spec/linter_spec.rb .
 
 
